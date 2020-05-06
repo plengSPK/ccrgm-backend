@@ -121,7 +121,7 @@ app/api/runtime/
 
 .idea/
 
-app/config/db.php
+# app/config/db.php
 
 app/vendor/
 app/composer.lock
