@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Turn long options into single-letter-options, since long-options are not
+# supported by getopts
+args=( )
+
+for arg; do
+  case "$arg" in
+    --server) args+=( -s ) ;;
+    *)        args+=( "$arg" ) ;;
+  esac
+done
+
+set -- "${args[@]}"
+
+# now we can use getopts
 while getopts ":s:" OPTION; do
     : "$OPTION" "$OPTARG"
     case $OPTION in
